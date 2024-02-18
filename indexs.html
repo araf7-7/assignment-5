@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Seat Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-8">
+    <div class="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+        <h1 class="text-2xl font-semibold mb-4">Bus Seat Booking</h1>
+        <p class="mb-4">Each seat costs 550 taka.</p>
+        <div id="seatsContainer" class="flex flex-wrap mb-4">
+            <!-- Seat buttons will be dynamically added here -->
+        </div>
+        <div id="couponContainer" class="hidden mb-4">
+            <input type="text" id="couponInput" class="border border-gray-300 rounded-md px-2 py-1 mr-2"
+                placeholder="Enter coupon code">
+            <button id="applyCouponBtn"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Apply Coupon</button>
+        </div>
+        <p class="font-bold">Total Price: <span id="totalPrice">0</span> taka</p>
+        <p class="font-bold hidden" id="discountedPrice">Grand Total: <span id="grandTotalPrice">0</span> taka</p>
+    </div>
+
+    <script>
+        let totalPrice = 0;
+        let ticketsBought = 0;
+
+        function buyTicket() {
+            if (ticketsBought >= 4) {
+                alert('You can only buy up to 4 tickets.');
+                return;
+            }
+            totalPrice += 550;
+            ticketsBought++;
+            updateUI();
+            if (ticketsBought === 3) {
+                document.getElementById('couponContainer').classList.remove('hidden');
+            }
+        }
+
+        function applyCoupon() {
+            const couponCode = document.getElementById('couponInput').value;
+            // Assume coupon code validation here
+            // For simplicity, let's just apply a fixed discount of 15%
+            const discountPercentage = 15;
+            const discountAmount = totalPrice * (discountPercentage / 100);
+            const discountedPrice = totalPrice - discountAmount;
+            document.getElementById('totalPrice').textContent = discountedPrice;
+            document.getElementById('discountedPrice').classList.remove('hidden');
+            document.getElementById('grandTotalPrice').textContent = discountedPrice;
+        }
+
+        function updateUI() {
+            document.getElementById('totalPrice').textContent = totalPrice;
+        }
+
+        // Dynamically create seat buttons
+        const seatsContainer = document.getElementById('seatsContainer');
+        for (let i = 1; i <= 8; i++) {
+            const button = document.createElement('button');
+            button.textContent = `Seat ${i}`;
+            button.classList.add('bg-blue-500', 'hover:bg-blue-600', 'text-white', 'font-bold', 'py-2', 'px-4', 'rounded', 'mr-2', 'mb-2');
+            button.addEventListener('click', buyTicket);
+            seatsContainer.appendChild(button);
+        }
+
+        document.getElementById('applyCouponBtn').addEventListener('click', applyCoupon);
+    </script>
+</body>
+
+</html>

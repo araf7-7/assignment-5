@@ -83,7 +83,7 @@
               directly within the app. <br> The
               integrated testing features allow for a streamlined .</p>
             <div class="card-actions justify-center items-center">
-              <button class="btn bg-[#1DD100] border-none rounded-lg font-inter">Buy Tickets</button>
+              <button id="buyTickets" class="btn bg-[#1DD100] border-none rounded-lg font-inter">Buy Tickets</button>
             </div>
           </div>
         </div>
@@ -91,13 +91,13 @@
     </div>
   </header>
   <div>
-    <main class="container mx-auto mt-14">
+    <main class="mt-14">
       <!-- promo section -->
       <section>
         <h1 class="text-center text-[#030712] text-4xl font-raleway font-bold ">Best offers for you</h1>
-        <div class="flex justify-around items-center">
+        <div class="flex justify-evenly items-center">
           <div
-            class="flex justify-center gap-10 items-center rounded-3xl  w-[535px] h-[220px] bg-[#FFBF0F] text-[#030712] mt-12">
+            class="flex justify-center gap-10 items-center rounded-3xl  w-[570px] h-[220px] bg-[#FFBF0F] text-[#030712] mt-12">
             <div class="font-inter">
               <h2 class="card-title text-[#030712CC] text-4xl">15% OFF</h2>
               <p class="text-[#030712CC] text-xl">on your next purchase</p>
@@ -110,7 +110,7 @@
             </div>
           </div>
           <div
-            class="flex justify-center gap-10 items-center rounded-3xl  w-[535px] h-[220px] bg-[#F78C9C] text-[#030712] mt-12">
+            class="flex justify-center gap-10 items-center rounded-3xl  w-[570px] h-[220px] bg-[#F78C9C] text-[#030712] mt-12">
             <div class="font-inter">
               <h2 class="card-title text-[#030712CC] text-4xl">20% OFF</h2>
               <p class="text-[#030712CC] text-xl">on your next purchase</p>
@@ -129,10 +129,119 @@
         </div>
       </section>
       <!-- main-section -->
-      <section>
+      <section class="mt-[120px] bg-[#f7f8f8] bus border-t-2 border-[#1DD100] rounded-t-[88px] pb-16 ">
+        <h1 class="font-raleway text-4xl font-bold text-center items-center m-auto pt-[120px]">P.H Paribahan</h1>
+        <p class="font-inter text-center items-center m-auto mt-6">Yes, you can run unit tests and view the results
+          directly within the app. The
+          integrated <br> testing
+          features allow for a streamlined .</p>
+        <div class="bg-white w-[1170px] mt-[47px]  items-center text-center m-auto rounded-[32px] flex flex-row">
+          <div class=>
+            <div class="flex flex-row gap-10 justify-between text-center items-center pl-[32px]">
+              <img src="images/bus-logo.png" class="w-[60px] h-[45px]" alt="">
+              <div>
+                <h1 class="font-raleway font-bold text-[32px]">Greenline Paribahan</h1>
+                <p class="font-inter font-normal text-[#03071299]">Coach-009-WEB ! AC_Business</p>
+              </div>
+              <div class="bg-[#ddf8d9] flex w-[146px] rounded-xl h-[50px] items-center text-center">
+                <img src="images/seat-green.png" class="flex w-8 h-8" alt="">
+                <h1 class="flex-1 class-inter text-[#1dd100]">0 seats Left</h1>
+              </div>
+            </div>
+            <div class="w-[800px] h-[220px] rounded-xl ml-7 bg-[#f7f8f8] px-8 mt-[24px]">
+              <div class="flex justify-between py-[20px]">
+                <h1 class="font-raleway font-semibold text-[#03071299]">Route</h1>
+                <h1 class="font-raleway font-semibold text-black">Dhaka - Sylhet</h1>
+              </div>
+              <hr class="border-dashed border">
+              <div class="flex justify-between py-[20px]">
+                <h1 class="font-raleway font-semibold text-[#03071299]">Departure Time</h1>
+                <h1 class="font-raleway font-semibold text-black">9:00 PM</h1>
+              </div>
+              <hr class="border-dashed border">
+              <div class="text-inter font-medium py-5 flex justify-between">
+                <button class="btn bg-[#0307120d]">Boarding Point - Laxmipur</button>
+                <button class="btn bg-[#0307120d]">Dropping Point - Bogura</button>
+                <button class="btn bg-[#0307120d]">Est. Time - 11 Hour</button>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img src="images/info-devider.png" class="ml-4" alt="">
+          </div>
+          <div>
+            <div class="font-raleway ml-8">
+              <img src="images/fare.png" class="items-center text-center m-auto" alt="">
+              <h1 class="font-semibold text-4xl">550 Taka</h1>
+              <h1 class="font-medium text-2xl">Per Seat</h1>
+            </div>
+          </div>
+        </div>
 
+        <section class="flex m-auto justify-center mt-14 bg-white w-[1170px] rounded-xl">
+          <div class="mt-6">
+            <div class="gird grid-cols-2 lg:grid-cols-4 ">
+              <button onclick="buySeat('A1')" class="btn btn-ghost mx-10">A1</button>
+              <button onclick="buySeat('A2')" class="btn btn-ghost mx-10">A2</button>
+              <button onclick="buySeat('A3')" class="btn btn-ghost mx-10">A3</button>
+              <button onclick="buySeat('A4')" class="btn btn-ghost mx-10">A4</button>
+            </div mx-10>
+            <div class="gird grid-cols-2 lg:grid-cols-4 ">
+              <button onclick="buySeat('B1')" class="btn btn-ghost mx-10">B1</button>
+              <button onclick="buySeat('B2')" class="btn btn-ghost mx-10">B2</button>
+              <button onclick="buySeat('B3')" class="btn btn-ghost mx-10">B3</button>
+              <button onclick="buySeat('B4')" class="btn btn-ghost mx-10">B4</button>
+            </div>
+          </div>
+          <section class="mt-6 mb-12">
+            <div class="max-w-md mx-auto bg-[#F7F8F8] w-[433px] p-8 rounded-md shadow-md">
+              <h1 class="text-2xl font-semibold mb-4">Select Your Seat</h1>
+              <div id="ticketList" class="mb-4"></div>
+              <div id="couponContainer" class="hidden mt-4">
+                <p class="mb-4">Total Price: <span id="totalPrice">0</span> taka</p>
+                <div class="flex">
+                  <input type="text" id="couponInput" class="border border-gray-300 rounded-md px-2 py-1"
+                    placeholder="Have any coupon?">
+                  <button id="applyCouponBtn"
+                    class="bg-[#1DD100] text-lg text-white font-semibold py-2 px-4 rounded">Apply</button>
+                </div>
+                <p class="font-bold hidden" id="grandTotalInfo">Grand Total: <span id="grandTotal">0</span> taka</p>
+              </div>
+            </div>
+          </section>
+        </section>
       </section>
-    </main>
+
+      <footer class="footer p-10 bg-[#030712] text-neutral-content">
+        <aside>
+          <h1 class="text-4xl font-extrabold">P-Ticket</h1>
+          <p class="text-lg">P-Ticket is a digital platform to make your <br>daily commuting better.</p>
+
+          <h1 class="text-lg">@all rights reserved, P-Ticket services limited.2024</h1>
+        </aside>
+        <nav>
+          <h6 class="footer-title">Download our app</h6>
+          <div class="grid grid-flow-col gap-4">
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
+                </path>
+              </svg></a>
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                <path
+                  d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
+                </path>
+              </svg></a>
+            <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="fill-current">
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
+                </path>
+              </svg></a>
+          </div>
+          <hr>
+        </nav>
+      </footer>
+      <script src="app.js"></script>
 </body>
 
 </html>

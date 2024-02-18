@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Seat Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 p-8">
+    <div class="max-w-md mx-auto bg-white p-8 rounded-md shadow-md">
+        <h1 class="text-2xl font-semibold mb-4">Bus Seat Booking</h1>
+        <p class="mb-4">Each seat costs 550 taka.</p>
+        <div id="seatButtons" class="mb-4">
+            <!-- Buttons for each seat -->
+            <!-- You can dynamically generate these buttons using JavaScript -->
+            <!-- For simplicity, let's assume there are 8 seats -->
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+                onclick="buySeat(1)">Seat 1</button>
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+                onclick="buySeat(2)">Seat 2</button>
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+                onclick="buySeat(3)">Seat 3</button>
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+                onclick="buySeat(4)">Seat 4</button>
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+                onclick="buySeat(5)">Seat 5</button>
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+                onclick="buySeat(6)">Seat 6</button>
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mr-2"
+                onclick="buySeat(7)">Seat 7</button>
+            <button class="seat-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                onclick="buySeat(8)">Seat 8</button>
+        </div>
+        <div id="couponContainer" class="hidden mb-4">
+            <input type="text" id="couponInput"
+                class="border border-gray-300 rounded-md px-2 py-1 mr-2"
+                placeholder="Enter coupon code">
+            <button id="applyCouponBtn"
+                class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Apply
+                Coupon</button>
+        </div>
+        <p class="mb-4">Total Price: <span id="totalPrice">0</span> taka</p>
+        <p class="mb-4 hidden" id="discountedPriceInfo">Discounted Price (after applying coupon): <span
+                id="discountedPrice">0</span> taka</p>
+        <p class="font-bold" id="grandTotalInfo">Grand Total: <span id="grandTotal">0</span> taka</p>
+    </div>
+
+    <script>
+        let totalPrice = 0;
+        let selectedSeats = [];
+        const seatPrice = 550;
+
+        function buySeat(seatNumber) {
+            if (selectedSeats.length < 4) {
+                totalPrice += seatPrice;
+                selectedSeats.push(seatNumber);
+                updateUI();
+            } else {
+                alert('You cannot buy more than 4 seats.');
+            }
+
+            if (selectedSeats.length === 3) {
+                document.getElementById('couponContainer').classList.remove('hidden');
+            }
+        }
+
+        function applyCoupon() {
+            const couponCode = document.getElementById('couponInput').value;
+            // Assuming coupon validation here (not implemented)
+            const discountPercentage = 15;
+            const discountAmount = totalPrice * (discountPercentage / 100);
+            const discountedPrice = totalPrice - discountAmount;
+            document.getElementById('discountedPrice').textContent = discountedPrice;
+            document.getElementById('discountedPriceInfo').classList.remove('hidden');
+            document.getElementById('grandTotal').textContent = discountedPrice;
+            document.getElementById('grandTotalInfo').classList.remove('hidden');
+        }
+
+        function updateUI() {
+            document.getElementById('totalPrice').textContent = totalPrice;
+        }
+
+        document.getElementById('applyCouponBtn').addEventListener('click', applyCoupon);
+    </script>
+</body>
+
+</html>
